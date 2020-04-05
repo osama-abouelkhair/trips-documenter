@@ -1,4 +1,4 @@
-package com.example.cleanarchitecture;
+package com.example.trips_documenter;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

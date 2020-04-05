@@ -1,7 +1,7 @@
-package com.example.cleanarchitecture.customer.controllers;
+package com.example.trips_documenter.customer.controllers;
 
-import com.example.cleanarchitecture.customer.services.CustomerDTO;
-import com.example.cleanarchitecture.customer.services.CustomerSigningup;
+import com.example.trips_documenter.customer.services.CustomerDTO;
+import com.example.trips_documenter.customer.services.CustomerSigningup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;

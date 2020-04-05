@@ -1,4 +1,4 @@
-package com.example.cleanarchitecture.customer.entities;
+package com.example.trips_documenter.customer.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

@@ -1,6 +1,6 @@
-package com.example.cleanarchitecture.customer.controllers;
+package com.example.trips_documenter.customer.controllers;
 
-import com.example.cleanarchitecture.customer.services.CustomerDTO;
+import com.example.trips_documenter.customer.services.CustomerDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;

@@ -1,4 +1,4 @@
-package com.example.cleanarchitecture.booking;
+package com.example.trips_documenter.booking;
 
 import org.springframework.data.repository.CrudRepository;
 

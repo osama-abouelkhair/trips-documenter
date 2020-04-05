@@ -1,9 +1,7 @@
-package com.example.cleanarchitecture.customer.services;
+package com.example.trips_documenter.customer.services;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;

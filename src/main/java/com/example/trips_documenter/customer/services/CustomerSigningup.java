@@ -1,8 +1,8 @@
-package com.example.cleanarchitecture.customer.services;
+package com.example.trips_documenter.customer.services;
 
-import com.example.cleanarchitecture.customer.entities.Address;
-import com.example.cleanarchitecture.customer.entities.Customer;
-import com.example.cleanarchitecture.customer.repository.CustomerRepository;
+import com.example.trips_documenter.customer.entities.Address;
+import com.example.trips_documenter.customer.entities.Customer;
+import com.example.trips_documenter.customer.repository.CustomerRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
