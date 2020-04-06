@@ -1,4 +1,4 @@
-package com.example.trips_documenter.customer.services;
+package com.example.trips_documenter.user.services;
 
 
 import lombok.AllArgsConstructor;

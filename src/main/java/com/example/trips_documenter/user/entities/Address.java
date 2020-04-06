@@ -1,4 +1,4 @@
-package com.example.trips_documenter.customer.entities;
+package com.example.trips_documenter.user.entities;
 
 import javax.persistence.Embeddable;
 

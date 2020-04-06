@@ -1,11 +1,11 @@
-package com.example.trips_documenter.customer.entities;
+package com.example.trips_documenter.user.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.time.LocalDate;
 
 @Entity
-public class Customer {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,20 +21,20 @@ public class Customer {
     @Email
     private String email;
 
-    public Customer() {}
+    public User() {}
 
-    public static Customer createCustomer(Long id, String name, LocalDate birthDate, String email, Address address) {
-        Customer customer = new Customer();
-        customer.id = id;
-        customer.name = name;
-        customer.birthdate = birthDate;
-        customer.address = address;
-        customer.email = email;
-        customer.address = address;
-        return customer;
+    public static User createUser(Long id, String name, LocalDate birthDate, String email, Address address) {
+        User user = new User();
+        user.id = id;
+        user.name = name;
+        user.birthdate = birthDate;
+        user.address = address;
+        user.email = email;
+        user.address = address;
+        return user;
     }
 
-    Customer changeAddress(Address address) {
+    User changeAddress(Address address) {
         this.address = address;
         return this;
     }

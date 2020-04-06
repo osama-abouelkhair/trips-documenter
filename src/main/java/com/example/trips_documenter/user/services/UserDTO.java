@@ -1,4 +1,4 @@
-package com.example.trips_documenter.customer.services;
+package com.example.trips_documenter.user.services;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -9,9 +9,9 @@ import java.time.LocalDate;
 
 
 @Data
-public class CustomerDTO {
-    public CustomerDTO() {}
-    public CustomerDTO(@NotNull String name, @NotNull LocalDate birthdate, @NotNull String email) {
+public class UserDTO {
+    public UserDTO() {}
+    public UserDTO(@NotNull String name, @NotNull LocalDate birthdate, @NotNull String email) {
         this.name = name;
         this.birthdate = birthdate;
         this.email = email;

@@ -1,6 +1,6 @@
-package com.example.trips_documenter.customer.controllers;
+package com.example.trips_documenter.user.controllers;
 
-import com.example.trips_documenter.customer.services.CustomerDTO;
+import com.example.trips_documenter.user.services.UserDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class CustomerControllerTest {
+class UserControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -32,7 +32,7 @@ class CustomerControllerTest {
     @Test
     void signUpTest() throws Exception {
         LocalDate birthDate = LocalDate.now();
-        CustomerDTO customerDTO = new CustomerDTO("osama", birthDate, "osama@gmail.com");
+        UserDTO userDTO = new UserDTO("osama", birthDate, "osama@gmail.com");
         ObjectMapper objectMapper = new ObjectMapper();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -40,9 +40,9 @@ class CustomerControllerTest {
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.setDateFormat(simpleDateFormat);
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        this.mockMvc.perform(post("/customers")
+        this.mockMvc.perform(post("/users")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(objectMapper.writeValueAsString(customerDTO)))
+                .content(objectMapper.writeValueAsString(userDTO)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$['id']", notNullValue()))
                 .andExpect(jsonPath("$['name']").value("osama"))
