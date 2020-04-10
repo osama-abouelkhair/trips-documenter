@@ -1,13 +1,13 @@
-package com.example.trips_documenter.cost.entities;
+package com.example.trips_documenter.item.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Currency;
 
 @Entity
+@Getter
 public class Item {
 
     @Id
@@ -21,15 +21,17 @@ public class Item {
     private String name;
 
     @NotNull
+    @Embedded
     private Cost cost;
 
     private String description;
 
-    public static Item createItem(Long tripId, String name, Float price, Currency currency, String description) {
+    public static Item createItem(Long tripId, String name, Float price, Currency currency, Currency userCurrency, String description) {
         Item item = new Item();
         item.tripId = tripId;
         item.name = name;
         item.description = description;
+        item.cost = CostFactory.create(price, currency, userCurrency);
         return item;
     }
 }

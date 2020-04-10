@@ -1,4 +1,4 @@
-package com.example.trips_documenter.currencyconversion;
+package com.example.trips_documenter.item.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -9,8 +9,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Currency;
 
 public class CurrencyRateRetrieval {
-
-
 
     private static String baseUrl = "https://api.exchangeratesapi.io/latest";
 
@@ -27,10 +25,8 @@ public class CurrencyRateRetrieval {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-
-        // When
         JsonNode rates = actualObj.get("rates");
-        String currencyConverionsRate = rates.get(toCurrency.getCurrencyCode()).textValue();
+        return Float.valueOf(rates.findPath(toCurrency.getCurrencyCode()).asText());
     }
 
 

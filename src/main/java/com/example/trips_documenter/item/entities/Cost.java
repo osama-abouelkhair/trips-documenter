@@ -1,17 +1,25 @@
-package com.example.trips_documenter.cost.entities;
+package com.example.trips_documenter.item.entities;
 
-import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import javax.persistence.Embeddable;
 import java.util.Currency;
 
 @Embeddable
-@AllArgsConstructor
+@Getter
 public class Cost {
+
+    private Cost() { }
+
+    Cost(Float price, Currency currency, Float conversionRate) {
+        this.price = price;
+        this.currency = currency.getCurrencyCode();
+        this.conversionRate = conversionRate;
+    }
 
     private Float price;
 
-    private Currency currency;
+    private String currency;
 
     private Float conversionRate;
 
