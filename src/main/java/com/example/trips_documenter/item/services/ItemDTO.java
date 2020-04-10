@@ -7,7 +7,7 @@ public class ItemDTO {
 
     public Long Id;
 
-    public Long tripId;
+    public Long trip;
 
     public String name;
 

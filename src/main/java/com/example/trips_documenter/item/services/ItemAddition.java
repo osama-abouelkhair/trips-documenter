@@ -18,7 +18,7 @@ public class ItemAddition {
 
     public ItemDTO add(ItemDTO itemDTO, Long userId) {
         //TODO using user id get the user currency
-        Item item = Item.createItem(itemDTO.tripId,
+        Item item = Item.createItem(itemDTO.trip,
                 itemDTO.name,
                 itemDTO.cost.price,
                 Currency.getInstance(itemDTO.cost.currency),

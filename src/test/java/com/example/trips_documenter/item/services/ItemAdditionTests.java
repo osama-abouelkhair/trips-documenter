@@ -16,7 +16,7 @@ public class ItemAdditionTests {
     void addTest() throws Exception {
         ItemDTO item = new ItemDTO();
         item.name = "item 1";
-        item.tripId = 1L;
+        item.trip = 1L;
         item.description = "description";
         CostDTO cost= new CostDTO();
         cost.price = 140F;

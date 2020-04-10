@@ -15,7 +15,7 @@ public class Item {
     private Long Id;
 
     @NotNull
-    private Long tripId;
+    private Long trip;
 
     @NotNull
     private String name;
@@ -26,9 +26,9 @@ public class Item {
 
     private String description;
 
-    public static Item createItem(Long tripId, String name, Float price, Currency currency, Currency userCurrency, String description) {
+    public static Item createItem(Long trip, String name, Float price, Currency currency, Currency userCurrency, String description) {
         Item item = new Item();
-        item.tripId = tripId;
+        item.trip = trip;
         item.name = name;
         item.description = description;
         item.cost = CostFactory.create(price, currency, userCurrency);
