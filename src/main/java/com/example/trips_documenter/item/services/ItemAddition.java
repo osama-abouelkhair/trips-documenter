@@ -1,6 +1,7 @@
 package com.example.trips_documenter.item.services;
 
 import com.example.trips_documenter.item.entities.Item;
+import com.example.trips_documenter.item.entities.ItemFactory;
 import com.example.trips_documenter.item.repository.ItemRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class ItemAddition {
 
     public ItemDTO add(ItemDTO itemDTO, Long userId) {
         //TODO using user id get the user currency
-        Item item = Item.createItem(itemDTO.trip,
+        Item item = new ItemFactory().create(itemDTO.trip,
                 itemDTO.name,
                 itemDTO.cost.price,
                 Currency.getInstance(itemDTO.cost.currency),

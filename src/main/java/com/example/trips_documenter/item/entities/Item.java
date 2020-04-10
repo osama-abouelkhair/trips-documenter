@@ -4,11 +4,16 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Currency;
 
 @Entity
 @Getter
 public class Item {
+    protected Item(@NotNull Long trip, @NotNull String name, @NotNull Cost cost, String description) {
+        this.trip = trip;
+        this.name = name;
+        this.cost = cost;
+        this.description = description;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,12 +31,4 @@ public class Item {
 
     private String description;
 
-    public static Item createItem(Long trip, String name, Float price, Currency currency, Currency userCurrency, String description) {
-        Item item = new Item();
-        item.trip = trip;
-        item.name = name;
-        item.description = description;
-        item.cost = CostFactory.create(price, currency, userCurrency);
-        return item;
-    }
 }

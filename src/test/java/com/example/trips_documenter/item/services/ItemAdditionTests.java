@@ -22,7 +22,6 @@ public class ItemAdditionTests {
         cost.price = 140F;
         cost.currency = "EUR";
         item.cost = cost;
-
         ItemDTO addedItem = itemAddition.add(item, 1L);
         assertThat(addedItem.Id).isNotNull();
     }
