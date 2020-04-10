@@ -15,11 +15,14 @@ public class ItemAddition {
     @Autowired
     private ItemRepository itemRepository;
 
-    ModelMapper mapper = new ModelMapper();
+    private ModelMapper mapper = new ModelMapper();
+
+    @Autowired
+    private ItemFactory itemFactory;
 
     public ItemDTO add(ItemDTO itemDTO, Long userId) {
         //TODO using user id get the user currency
-        Item item = new ItemFactory().create(itemDTO.trip,
+        Item item = itemFactory.create(itemDTO.trip,
                 itemDTO.name,
                 itemDTO.cost.price,
                 Currency.getInstance(itemDTO.cost.currency),
