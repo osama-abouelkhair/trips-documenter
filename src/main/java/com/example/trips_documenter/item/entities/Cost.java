@@ -22,10 +22,4 @@ public class Cost {
     private String currency;
 
     private Float conversionRate;
-
-    public Cost convertTo(Currency currency) {
-        Float newPrice = this.price * conversionRate;
-        Cost cost = new Cost(newPrice, currency, 1 / conversionRate);
-        return cost;
-    }
 }
