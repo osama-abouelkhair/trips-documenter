@@ -2,7 +2,6 @@ package com.example.trips_documenter.item.entities;
 
 import com.example.trips_documenter.item.services.CurrencyRateRetrieval;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import java.util.Currency;
