@@ -1,13 +1,15 @@
 package com.example.trips_documenter.plan.entity;
 
-import javax.persistence.Embeddable;
+import lombok.Getter;
 
-@Embeddable
-public class CompletedAction implements ActionStatus {
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
-    private String status = "completed";
+@Getter
+@Entity
+@DiscriminatorValue("completed")
+public class CompletedAction extends ActionStatus {
 
-    @Override
     public ActionStatus next() {
         return null;
     }

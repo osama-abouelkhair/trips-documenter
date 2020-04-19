@@ -11,5 +11,4 @@ public class CleanArchitectureApplication {
         run(CleanArchitectureApplication.class, args);
     }
 
-
 }

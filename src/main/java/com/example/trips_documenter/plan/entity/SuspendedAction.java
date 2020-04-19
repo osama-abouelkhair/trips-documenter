@@ -1,13 +1,16 @@
 package com.example.trips_documenter.plan.entity;
 
-import javax.persistence.Embeddable;
 
-@Embeddable
-public class SuspendedAction implements ActionStatus {
+import lombok.Getter;
 
-    private String status = "suspended";
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
-    @Override
+@Getter
+@Entity
+@DiscriminatorValue("suspended")
+public class SuspendedAction extends ActionStatus {
+
     public ActionStatus next() {
         return null;
     }

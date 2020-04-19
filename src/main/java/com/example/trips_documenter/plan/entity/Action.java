@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,8 +15,9 @@ public class Action {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Embedded
-    ActionStatus status = new NewAction();
+    @ManyToOne
+    @JoinColumn(name = "status")
+    ActionStatus status;
 
     private String name;
 
@@ -23,26 +25,35 @@ public class Action {
 
     private LocalDateTime endTime;
 
+    public Action() { }
+
+    public Action(ActionStatus status, String name, LocalDateTime startTime, LocalDateTime endTime) {
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.status = status;
+    }
+
     @ManyToMany
     @JoinTable(
             name = "dependents_actions",
             joinColumns = @JoinColumn(name = "dependent_action_id"),
             inverseJoinColumns = @JoinColumn(name = "dependable_action_id"))
-    private Set<Action> dependents;
+    private Set<Action> dependents = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
             name = "consequences_actions",
             joinColumns = @JoinColumn(name = "consequence_action_id"),
             inverseJoinColumns = @JoinColumn(name = "previous_action_id"))
-    private Set<Action> consequences;
+    private Set<Action> consequences = new HashSet<>();
 
-    public Action dependsOnAction(Action action) {
+    public Action addActionAsdependant(Action action) {
         dependents.add(action);
         return this;
     }
 
-    public Action registerConsequenceAction(Action action) {
+    public Action addActionsAsConsequence(Action action) {
         consequences.add(action);
         return this;
     }

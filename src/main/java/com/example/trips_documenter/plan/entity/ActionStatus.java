@@ -1,14 +1,28 @@
 package com.example.trips_documenter.plan.entity;
 
-public interface ActionStatus {
+import lombok.Getter;
 
-    ActionStatus next();
+import javax.persistence.*;
 
-    default ActionStatus completed() {
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(
+        discriminatorType = DiscriminatorType.STRING,
+        name = "status",
+        columnDefinition = "VARCHAR(10)"
+)
+@Getter
+public class ActionStatus {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
+
+    ActionStatus completed() {
         return new CompletedAction();
     }
 
-    default ActionStatus abandoned() {
+    ActionStatus abandoned() {
         return new AbandonedAction();
     }
 }

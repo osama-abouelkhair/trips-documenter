@@ -1,13 +1,14 @@
 package com.example.trips_documenter.plan.entity;
 
-import javax.persistence.Embeddable;
+import lombok.Getter;
 
-@Embeddable
-public class NewAction implements ActionStatus {
+import javax.persistence.*;
 
-    private String status = "new";
+@Getter
+@Entity
+@DiscriminatorValue("new")
+public class NewAction extends ActionStatus {
 
-    @Override
     public ActionStatus next() {
         return null;
     }
