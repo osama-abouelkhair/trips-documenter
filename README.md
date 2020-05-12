@@ -9,6 +9,8 @@ The idea of the project is to provide an API for a web/mobile Trip Documenter Ap
 ## Designs:
 [Class Diagram](https://drive.google.com/file/d/1b9Wz9O7F0BkkaoVXtv-_s2c5NMvRB75a/view?usp=sharing)
 
+## Technical Debt
+    - Seperate Unit and Integration tests.
 
 ## User Stories
 ### User Story No. 1
